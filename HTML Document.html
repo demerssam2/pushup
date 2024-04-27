@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Push-Up Timer</title>
+</head>
+<body>
+
+<button onclick="startTimer()">Start Timer</button>
+<p id="timer"></p>
+<p id="repCount">Rep Count: 0</p>
+
+<script>
+let timer;
+let count = 0;
+
+function startTimer() {
+    count++;
+    document.getElementById("repCount").innerText = "Rep Count: " + count;
+    let timeLeft = 120;
+    clearInterval(timer);
+
+    timer = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            notify();
+        } else {
+            document.getElementById("timer").innerText = "Time left: " + timeLeft + " seconds";
+            timeLeft--;
+        }
+    }, 1000);
+}
+
+function notify() {
+    var audio = new Audio('C:\Users\ldeme\Downloads\mixkit-happy-bells-notification-937.wav'); // replace 'notification_sound.mp3' with the path to your audio file
+    audio.play();
+    alert("Time's up! Get ready for the next set.");
+}
+</script>
+
+</body>
+</html>
