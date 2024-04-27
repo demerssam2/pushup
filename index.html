@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Push-Up Timer</title>
+<style>
+  body {
+    transition: background-color 0.5s ease;
+  }
+  .flash {
+    background-color: red;
+  }
+</style>
 </head>
 <body>
 
@@ -46,6 +54,17 @@ function startTimer() {
 
 function notify() {
     alert("Time's up! Get ready for the next set.");
+    flashBackground();
+}
+
+function flashBackground() {
+    let flashingInterval = setInterval(() => {
+        document.body.classList.toggle('flash');
+    }, 200);
+    setTimeout(() => {
+        clearInterval(flashingInterval);
+        document.body.classList.remove('flash');
+    }, 3000); // Flash for 3 seconds
 }
 </script>
 
