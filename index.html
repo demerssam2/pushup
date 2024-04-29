@@ -48,16 +48,12 @@ function startTimer() {
     timer = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(timer);
-            notify();
+            flashBackground();
         } else {
             document.getElementById("timer").innerText = "Time left: " + timeLeft + " seconds";
             timeLeft--;
         }
     }, 1000);
-}
-
-function notify() {
-    flashBackground();
 }
 
 function flashBackground() {
@@ -67,7 +63,7 @@ function flashBackground() {
     setTimeout(() => {
         clearInterval(flashingInterval);
         document.body.classList.remove('flash');
-    }, 5000); // Flash for 3 seconds
+    }, 5000);
 }
 </script>
 
