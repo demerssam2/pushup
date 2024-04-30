@@ -35,13 +35,14 @@
 
 <script>
 let timer;
+let count = 0;
 
 function setTimer(duration) {
     document.getElementById("durationInput").value = duration;
 }
-
 function startTimer() {
-    document.getElementById("repCount").innerText = "Rep Count: " + 1;
+    count++;
+    document.getElementById("repCount").innerText = "Rep Count: " + count;
     let timeLeft = parseInt(document.getElementById("durationInput").value);
     clearInterval(timer);
 
