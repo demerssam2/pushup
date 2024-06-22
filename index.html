@@ -31,18 +31,14 @@
     <button onclick="setTimer(300)">5m</button>
 </div>
 <p id="timer"></p>
-<p id="repCount">Rep Count: 0</p>
 
 <script>
 let timer;
-let count = 0;
 
 function setTimer(duration) {
     document.getElementById("durationInput").value = duration;
 }
 function startTimer() {
-    count++;
-    document.getElementById("repCount").innerText = "Rep Count: " + count;
     let timeLeft = parseInt(document.getElementById("durationInput").value);
     clearInterval(timer);
 
